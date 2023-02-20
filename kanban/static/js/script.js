@@ -8,10 +8,10 @@ function toggleSidebar() {
     tab.addEventListener('click', function() {
       if (sidebar.classList.contains('open')) {
         console.log("The sidebar is open.");
-        tab.style.right = '0';
+        document.documentElement.style.setProperty('--tab-width', '20%')
       } else {
         console.log("The sidebar is closed.");
-        tab.style.right = '-40px';
+        document.documentElement.style.setProperty('--tab-width', '0%')
       }
     });
   }
