@@ -59,6 +59,12 @@ body {
     transition: right 0.3s;
 }
 
+.form-control{
+    border: none !important; /* if you want to remove borders at all*/
+    outline: none !important;
+    box-shadow: none !important;
+}
+
 /*CSS CODE FOR SIDEBARD COLLAPSE*/
 .list-header{
     display: flex;
