@@ -4,6 +4,8 @@
 }
 
 :root{
+    --opacity-level: 1;
+
     --tab-width: 20%;
     --tab-open: 0px;
     --tab-closed: -40px;
@@ -38,6 +40,7 @@ body {
 }
 
 .sidebar {
+    /* opacity: var(--opacity-level); */
     background-color: white;
     width: var(--tab-width);
     transition: width 0.3s ease-in-out;
@@ -126,6 +129,43 @@ li.list-group-item {
 .menu-button:active{
     font-weight: bold;
     background-color: #F5F9FC;
+}
+
+.profile-btn:focus,
+.profile-btn:active,
+.profile-btn.active {
+  outline: none;
+  text-decoration: none;
+}
+
+.profile-btn:hover{
+    text-decoration: none;
+}
+
+/* profile button */
+.profile-sidebar{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-btn{
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    height: 50px;
+    color: white;
+    background-color: #5d61f5;
+}
+
+.row{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
 }
 
 
