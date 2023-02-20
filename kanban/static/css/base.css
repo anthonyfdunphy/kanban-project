@@ -1,0 +1,45 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-size: cover;
+    height: calc(100vh - 164px);
+    color: #555;
+    background-color: blue;
+    font-family: 'MyFont', sans-serif;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: #333;
+    color: #fff;
+    transition: left 0.3s;
+}
+  
+.sidebar.open {
+    left: 0;
+}
+  
+.tab {
+    position: absolute;
+    top: 0;
+    right: -40px;
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+    color: #fff;
+    font-size: 30px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: right 0.3s;
+}
+  
+.tab:hover {
+    /*right: 0;*/
+}
