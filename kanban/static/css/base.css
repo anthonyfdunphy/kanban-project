@@ -12,6 +12,11 @@
 
     --open-width: 20%;
     --closed-width: -20%; 
+
+    --new-task:grey;
+    --to-do:blue;
+    --in-progress:pink;
+    --later: orange;
 }
 
 html {
@@ -80,6 +85,7 @@ body {
 
 .flex-parent {
     display: flex;
+    padding-top: 5%;
 }
 
 .flex-child {
@@ -171,5 +177,64 @@ li.list-group-item {
     height: 100%;
     width: 100%;
 }
+
+/*Task bar column setup*/
+
+.task-column{
+    height: 100vh;
+    overflow-y: auto;
+}
+
+/*Card CSS*/
+
+.card{
+    margin: 5%;
+}
+
+/*.task-title{
+    margin: 0;
+    padding-top: 5%;
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-bottom: 0;
+}*/
+
+/*Circle colouring style system
+.circle {
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+}*/
+
+.task-header {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding-top: 5%;
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-bottom: 0;
+}
+
+.circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--new-task);
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+/*Hamburger Menu*/
+.ham-menu{
+    border: 1px solid red;
+}
+  
+  
+
+
 
 
