@@ -4,11 +4,11 @@ from tasks.models import Tasks
 # Create your views here.
 
 def index(request):
-    tasks = Tasks.objects.all()
+    tasks = Tasks.objects.filter(status=0)
     cards = []
     for task in tasks:
         card = {
-            'title': task.title,
+            'task': task.task,
             'content': task.content,
         }
         cards.append(card)
