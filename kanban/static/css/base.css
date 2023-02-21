@@ -40,7 +40,7 @@ body {
 }
 
 .sidebar {
-    /* opacity: var(--opacity-level); */
+    opacity: var(--opacity-level);
     background-color: white;
     width: var(--tab-width);
     transition: width 0.3s ease-in-out;
