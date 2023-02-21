@@ -10,7 +10,6 @@ STATUS = (
 
 class Tasks(models.Model):
     title = models.CharField(max_length=300, unique=True)
-    slug = models.CharField(max_length=300, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField()
     status = models.IntegerField(choices=STATUS, default=0)
