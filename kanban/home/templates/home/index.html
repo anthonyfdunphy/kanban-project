@@ -91,6 +91,7 @@
 
 
             </div>
+
             <div class="content">
                 <!-- Navbar code -->
                 <nav class="navbar navbar-expand-lg navbar-light bg-white border border-black">
@@ -147,81 +148,8 @@
                     </div>
                 </nav>
 
-                <!-- To Do List etc code -->
                 <div class="row">
-                  <div class="col col-sm-6 col-md-3 border border-black task-column">
-                    <!-- Column 1 content -->
-                    <div class="task-header">
-                      <div class="circle"></div>
-                      <h4 class="task-title">Task Title</h4>
-                    </div>
-
-                    <div class="card">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title 1</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-                    </div>
-
-                    <div class="card">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title 1</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-                    </div>
-
-                    <div class="card">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title 1</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-                    </div>
-
-                    <div class="card">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title 1</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-                    </div>
-
-                    <div class="card">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title 1</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-                    </div>
-                    
-                    <div class="card">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title 1</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-                    </div>
-
-                    <div class="card">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title 1</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-                    </div>
-
-                    <div class="card">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title 1</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-                    </div>
-
-                  </div>
-
+                  <!-- To Do List code -->
                   <div class="col col-sm-6 col-md-3 border border-black">
                     <!-- Column 2 content -->
                     <div class="task-header">
@@ -229,24 +157,59 @@
                       <h4 class="task-title">To Do Tasks</h4>
                     </div>
 
-                    {% for card in cards %}
+                    {% for todo in todo_list %}
                       <div class="card">
                         <div class="card-body">
-                          <h5 class="card-title">{{ card.task }}</h5>
-                          <p class="card-text">{{ card.content }}</p>
+                          <h5 class="card-title">{{ todo.task }}</h5>
+                          <p class="card-text">{{ todo.content }}</p>
                         </div>
                       </div>
                     {% endfor %}
-
-
                     
                   </div>
+
+                  <!-- In Progress List code -->
+                  <div class="col col-sm-6 col-md-3 border border-black">
+                    <!-- Column 2 content -->
+                    <div class="task-header">
+                      <div class="circle"></div>
+                      <h4 class="task-title">In Progress Tasks</h4>
+                    </div>
+
+                    {% for inprog in inprog_list %}
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">{{ inprog.task }}</h5>
+                          <p class="card-text">{{ inprog.content }}</p>
+                        </div>
+                      </div>
+                    {% endfor %}
+                    
+                  </div>
+
+                  <!-- Complete List code -->
                   <div class="col col-sm-6 col-md-3 border border-black">
                     <!-- Column 3 content -->
+                    <div class="task-header">
+                      <div class="circle"></div>
+                      <h4 class="task-title">Completed Tasks</h4>
+                    </div>
+
+                    {% for done in done_list %}
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">{{ done.task }}</h5>
+                          <p class="card-text">{{ done.content }}</p>
+                        </div>
+                      </div>
+                    {% endfor %}
+                    
                   </div>
+
                   <div class="col col-sm-6 col-md-3 border border-black">
                     <!-- Column 4 content -->
                   </div>
+
                 </div>
                                 
             </div>
