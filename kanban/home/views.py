@@ -1,7 +1,9 @@
 from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from tasks.models import Tasks
 
 # Create your views here.
+
 
 def index(request):
     tasks_todo = Tasks.objects.filter(status=0)
@@ -19,3 +21,12 @@ def index(request):
     }
 
     return render(request, 'home/index.html', context)
+
+
+def update_task_status(request, task_id):
+    task = get_object_or_404(Tasks, id=task_id)
+    status = request.POST.get('status', None)
+    if status is not None:
+        task.status = status
+        task.save()
+    return redirect('my_task_list_url')
