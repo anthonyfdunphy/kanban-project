@@ -162,6 +162,7 @@
                         <div class="card-body">
                           <h5 class="card-title">{{ todo.task }}</h5>
                           <p class="card-text">{{ todo.content }}</p>
+                          <p>{{ todo.id }}</p>
                         </div>
                       </div>
                     {% endfor %}
@@ -181,6 +182,7 @@
                         <div class="card-body">
                           <h5 class="card-title">{{ inprog.task }}</h5>
                           <p class="card-text">{{ inprog.content }}</p>
+                          <p>{{ inprog.id }}</p>
                         </div>
                       </div>
                     {% endfor %}
@@ -200,21 +202,13 @@
                         <div class="card-body">
                           <h5 class="card-title">{{ done.task }}</h5>
                           <p class="card-text">{{ done.content }}</p>
-                          <form action="{% url 'update_task_status' done.id %}" method="POST">
-                            {% csrf_token %}
-                            <div class="form-group">
-                              <label for="status">Change Status:</label>
-                              <select class="form-control" id="status" name="status">
-                                <option value="0">To Do</option>
-                                <option value="1">In Progress</option>
-                                <option value="2">Done</option>
-                              </select>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Update</button>
-                          </form>
+                          <div class="btn-group" role="group" aria-label="Task status">
+                            <p>{{ done.id }}</p>
+                          </div>
                         </div>
                       </div>
                     {% endfor %}
+
                     
                   </div>
 

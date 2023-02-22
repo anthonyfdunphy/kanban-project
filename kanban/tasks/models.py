@@ -3,12 +3,6 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-# status_choices = [
-#         ('to-do', 'to-do'),
-#         ('in-progress', 'in-progres'),
-#         ('done', 'done'),
-# ]
-
 STATUS = (
     (0,"To-Do"),
     (1,"In-Progress"),
