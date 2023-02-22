@@ -162,7 +162,6 @@
                         <div class="card-body">
                           <h5 class="card-title">{{ todo.task }}</h5>
                           <p class="card-text">{{ todo.content }}</p>
-                            {% for todo in todo_list %}
                               <form id="task-form-{{ todo.id }}" class="task-form" data-task-id="{{ todo.id }}">
                                 {% csrf_token %}
                                 <label for="task-status-{{ todo.id }}">Status:</label>
@@ -173,7 +172,6 @@
                                 </select>
                                 <button type="submit">Update</button>
                               </form>
-                            {% endfor %}
                         </div>
                       </div>
                     {% endfor %}
