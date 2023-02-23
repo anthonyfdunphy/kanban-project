@@ -20,14 +20,9 @@ def index(request):
 
     return render(request, 'home/index.html', context)
 
-def update_task_status(request):
+def update_task_status(request, id):
     if request.method == 'POST':
-        task_id = request.POST.get('id')
-        new_status = request.POST.get('status')
-        task = get_object_or_404(Tasks, id=task_id)
-        task.status = new_status
-        task.save()
-        return JsonResponse({'id': task.id, 'status': task.status})
-    else:
-        return JsonResponse({'error': 'Invalid request'})
+        print("task new")
+
+        return redirect('home')
 

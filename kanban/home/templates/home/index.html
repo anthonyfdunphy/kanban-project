@@ -162,14 +162,9 @@
                         <div class="card-body">
                           <h5 class="card-title">{{ todo.task }}</h5>
                           <p class="card-text">{{ todo.content }}</p>
-                              <form id="task-form-{{ todo.id }}" class="task-form" data-task-id="{{ todo.id }}">
+                              <form id="task-form" method="POST" action="{% url 'update_task_status' todo.id %}">
                                 {% csrf_token %}
-                                <label for="task-status-{{ todo.id }}">Status:</label>
-                                <select id="task-status-{{ todo.id }}" name="status">
-                                  <option value="0" {% if task.status == 0 %}selected{% endif %}>To Do</option>
-                                  <option value="1" {% if task.status == 1 %}selected{% endif %}>In Progress</option>
-                                  <option value="2" {% if task.status == 2 %}selected{% endif %}>Complete</option>
-                                </select>
+                                <input type="hidden" name="id" value="{{ new_id }}">
                                 <button type="submit">Update</button>
                               </form>
                         </div>
