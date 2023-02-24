@@ -21,14 +21,14 @@ def index(request):
     return render(request, 'home/index.html', context)
 
 def update_task_status(request, task_id):
-
-    # Get the Task object with the given task_id from the database
-    task = get_object_or_404(Task, pk=task_id)
+    # Retrieve the Task object to update
+    task = Tasks.objects.filter(status=task_id).first()
 
     if request.method == 'POST':
-        # Get the new id value from the form data
-        new_id = request.POST.get('new_id')
-        print('new_id')
+        # Update the id field of the Task object
+        task.status = request.POST['new_id']
+        task.save()
 
-        return redirect('home')
+    # Redirect to the task list page
+    return render(request,'home/index.html')
 

@@ -1,16 +1,26 @@
-$(document).ready(function() {
-  $('#submit-button').click(function(event) {
-    event.preventDefault(); // Prevent the default form submission
-    $.ajax({
-      url: $('#task-form').attr('action'),
-      method: 'POST',
-      data: $('#task-form').serialize(),
-      success: function(response) {
-        location.reload(); // Refresh the page after successful submission
-      }
+  // Attach event listeners to each form
+  document.querySelectorAll('form').forEach(form => {
+    form.addEventListener('submit', function(event) {
+      // Prevent the default form submission behavior
+      event.preventDefault();
+
+      // Get the form data
+      const formData = new FormData(event.target);
+
+      // Submit the form data via AJAX
+      fetch(event.target.action, {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => {
+        // Reload the current page after the AJAX request has completed
+        window.location.reload();
+      })
+      .catch(error => {
+        console.error(error);
+      });
     });
   });
-});
 
 const hamburger = document.querySelector('.hamburger');
 
