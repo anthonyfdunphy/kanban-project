@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from tasks.models import Tasks
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
+
 
 def index(request):
     tasks_todo = Tasks.objects.filter(status=0)
@@ -30,5 +31,5 @@ def update_task_status(request, task_id):
         task.save()
 
     # Redirect to the task list page
-    return render(request,'home/index.html')
+    return HttpResponse('ok')
 
