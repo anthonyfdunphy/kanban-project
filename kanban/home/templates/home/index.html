@@ -162,11 +162,18 @@
                         <div class="card-body">
                           <h5 class="card-title">{{ todo.task }}</h5>
                           <p class="card-text">{{ todo.content }}</p>
-                              <form id="task-form" method="POST" action="{% url 'update_task_status' todo.id %}">
-                                {% csrf_token %}
-                                <input type="hidden" name="id" value="{{ new_id }}">
-                                <button type="submit">Update</button>
-                              </form>
+                          <form method="post" action="{% url 'update_task_status' task_id=todo.id %}">
+                            {% csrf_token %}
+                            <div class="form-group">
+                              <label for="id_select">New status:</label>
+                              <select class="form-control" id="id_select" name="new_id">
+                                <option value="0">Not started</option>
+                                <option value="1">In progress</option>
+                                <option value="2">Completed</option>
+                              </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                          </form>
                         </div>
                       </div>
                     {% endfor %}

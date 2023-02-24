@@ -20,9 +20,15 @@ def index(request):
 
     return render(request, 'home/index.html', context)
 
-def update_task_status(request, id):
+def update_task_status(request, task_id):
+
+    # Get the Task object with the given task_id from the database
+    task = get_object_or_404(Task, pk=task_id)
+
     if request.method == 'POST':
-        print("task new")
+        # Get the new id value from the form data
+        new_id = request.POST.get('new_id')
+        print('new_id')
 
         return redirect('home')
 
