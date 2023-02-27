@@ -11,6 +11,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
@@ -106,17 +107,6 @@
                       <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
-                      <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                          <a class="nav-link" href="#">View All</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#">Most Recent</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#">Popular</a>
-                        </li>
-                      </ul>
                       <form class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                         <i class="bi bi-search"></i>
@@ -150,29 +140,28 @@
 
                 <div class="row">
                   <!-- To Do List code -->
-                  <div class="col col-sm-6 col-md-3 border border-black">
+                  <div class="col col-sm-6 col-md-4 border border-black">
                     <!-- Column 2 content -->
                     <div class="task-header">
-                      <div class="circle"></div>
-                      <h4 class="task-title">To Do Tasks</h4>
+                      <div class="circle" id="to-do"></div>
+                      <h6 class="task-title">To Do Tasks</h6>
                     </div>
 
                     {% for todo in todo_list %}
                       <div class="card">
                         <div class="card-body">
                           <h5 class="card-title">{{ todo.task }}</h5>
-                          <p class="card-text">{{ todo.content }}</p>
+                          <p class="card-text text-justify">{{ todo.content }}</p>
                           <form id="update-task-form" method="post" action="{% url 'update_task_status' todo.id %}">
                             {% csrf_token %}
-                            <div class="form-group">
-                              <label for="id_select">New status:</label>
+                            <div class="form-group border border-black"">
                               <select class="form-control" id="id_select" name="new_id">
-                                <option value="0">To Do</option>
+                                <option value="0" selected="selected">To Do</option>
                                 <option value="1">In progress</option>
                                 <option value="2">Completed</option>
                               </select>
                             </div>
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" class="btn border border-blue text-uppercase">Save</button>
                           </form>
                         </div>
                       </div>
@@ -181,29 +170,28 @@
                   </div>
 
                   <!-- In Progress List code -->
-                  <div class="col col-sm-6 col-md-3 border border-black">
+                  <div class="col col-sm-6 col-md-4 border border-black">
                     <!-- Column 2 content -->
                     <div class="task-header">
-                      <div class="circle"></div>
-                      <h4 class="task-title">In Progress Tasks</h4>
+                      <div class="circle" id="in-prog"></div>
+                      <h6 class="task-title">In Progress Tasks</h6>
                     </div>
 
                     {% for inprog in inprog_list %}
                       <div class="card">
                         <div class="card-body">
-                          <h5 class="card-title">{{ inprog.task }}</h5>
-                          <p class="card-text">{{ inprog.content }}</p>
+                          <h5 class="card-title font-weight-bold">{{ inprog.task }}</h5>
+                          <p class="card-text text-justify">{{ inprog.content }}</p>
                           <form id="update-task-form-prog" method="post" action="{% url 'update_task_status' inprog.id %}">
                             {% csrf_token %}
-                            <div class="form-group">
-                              <label for="id_select">New status:</label>
+                            <div class="form-group border border-black"">
                               <select class="form-control" id="id_select" name="new_id">
                                 <option value="0">To Do</option>
-                                <option value="1">In progress</option>
+                                <option value="1" selected="selected">In progress</option>
                                 <option value="2">Completed</option>
                               </select>
                             </div>
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" class="btn border border-black text-uppercase">Save</button>
                           </form>
                         </div>
                       </div>
@@ -212,30 +200,29 @@
                   </div>
 
                   <!-- Complete List code -->
-                  <div class="col col-sm-6 col-md-3 border border-black">
+                  <div class="col col-sm-6 col-md-4 border border-black">
                     <!-- Column 3 content -->
                     <div class="task-header">
-                      <div class="circle"></div>
-                      <h4 class="task-title">Completed Tasks</h4>
+                      <div class="circle" id="complete"></div>
+                      <h6 class="task-title">Completed Tasks</h6>
                     </div>
 
                     {% for done in done_list %}
                       <div class="card">
                         <div class="card-body">
                           <h5 class="card-title">{{ done.task }}</h5>
-                          <p class="card-text">{{ done.content }}</p>
+                          <p class="card-text text-justify">{{ done.content }}</p>
                           <div class="btn-group" role="group" aria-label="Task status">
                             <form id="update-task-form-done" method="post" action="{% url 'update_task_status' done.id %}">
                               {% csrf_token %}
-                              <div class="form-group">
-                                <label for="id_select">New status:</label>
+                              <div class="form-group border border-black"">
                                 <select class="form-control" id="id_select" name="new_id">
                                   <option value="0">To Do</option>
                                   <option value="1">In progress</option>
-                                  <option value="2">Completed</option>
+                                  <option value="2" selected="selected">Completed</option>
                                 </select>
                               </div>
-                              <button type="submit" class="btn btn-primary">Save</button>
+                              <button type="submit" class="btn border border-black text-uppercase">Save</button>
                             </form>
                           </div>
                         </div>
@@ -243,10 +230,6 @@
                     {% endfor %}
 
                     
-                  </div>
-
-                  <div class="col col-sm-6 col-md-3 border border-black">
-                    <!-- Column 4 content -->
                   </div>
 
                 </div>

@@ -30,6 +30,9 @@ def update_task_status(request, task_id):
         task.status = request.POST['new_id']
         task.save()
 
+        # Return a JSON response indicating success
+        return JsonResponse({'success': True})
+
     # Redirect to the task list page
     return HttpResponse('ok')
 

@@ -16,7 +16,7 @@
     --new-task:grey;
     --to-do:blue;
     --in-progress:pink;
-    --later: orange;
+    --complete: orange;
 }
 
 html {
@@ -191,24 +191,6 @@ li.list-group-item {
     margin: 5%;
 }
 
-/*.task-title{
-    margin: 0;
-    padding-top: 5%;
-    padding-right: 5%;
-    padding-left: 5%;
-    padding-bottom: 0;
-}*/
-
-/*Circle colouring style system
-.circle {
-    width: 20px;
-    height: 20px;
-    background-color: blue;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 10px;
-}*/
-
 .task-header {
     display: flex;
     align-items: center;
@@ -223,14 +205,44 @@ li.list-group-item {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: var(--new-task);
+    /* background-color: var(--new-task); */
     margin-right: 10px;
     margin-bottom: 10px;
+}
+
+h6{
+    font: inherit;
+    font-weight: bold;
+}
+
+#to-do{
+    background-color: var(--to-do);
+}
+
+#in-prog{
+    background-color: var(--in-progress);
+}
+
+#complete{
+    background-color: var(--complete);
+}
+
+.card-title{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.card-text{
+    font-size: 15px;
 }
 
 /*Hamburger Menu*/
 .ham-menu{
     border: 1px solid red;
+}
+
+.btn{
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
 }
   
   
